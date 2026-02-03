@@ -1,10 +1,5 @@
 from fastapi import FastAPI
 from app.routes import task
-from app.database import engine, Base
-
-# Create tables on startup
-# In production, use Alembic migrations instead of this
-Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Task Management Tool",
@@ -17,7 +12,8 @@ from fastapi.middleware.cors import CORSMiddleware
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://verbose-adventure-uau8.onrender.com"
+    "https://verbose-adventure-uau8.onrender.com",
+    "https://verbose-adventure.vercel.app"
 ]
 
 app.add_middleware(
